@@ -27,8 +27,20 @@ categories: ja
 ### Ruby Demo
 ```ruby
 a = [1, 2, 3]
+sum = 0
 a.each do |e|
-  print (e)
+  sum = sum + e
+end
+print sum
+```
+
+```ruby
+a = [1, 2, 3]
+sum = 0
+for i in 0..2
+  sum = sum + a[i]
+end
+print sum
 ```
 
 
