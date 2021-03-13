@@ -1,5 +1,5 @@
 ---
-title: "Ruby SE プログラミングの基本知識"
+title: "Ruby SE 3 プログラミングの基本知識"
 date: 2021-03-13 13:23:00 -0000
 categories: ja
 ---
