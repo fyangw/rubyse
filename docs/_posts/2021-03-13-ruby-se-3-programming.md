@@ -16,3 +16,5 @@ categories: ja
 数式 |    |     |     |     
 文字列 |    |    |     |    
 
+リファレンス
+https://docs.microsoft.com/ja-jp/dotnet/visual-basic/programming-guide/language-features/
