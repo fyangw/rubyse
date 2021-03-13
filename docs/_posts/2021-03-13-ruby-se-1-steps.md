@@ -14,6 +14,7 @@ categories: ja
 * ウェブプログラミングとMVC(Ruby on Rails)
 * データベースプログラミングとORM(ActiveRecord)
 * シングルページアプリケーションとアプリ(Restful)
+* 自動ユニットテスト
 
 ### 上流工程
 * オブジェクト指向デザイン(UML)
