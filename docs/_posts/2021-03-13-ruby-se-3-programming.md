@@ -52,7 +52,7 @@ print s
 ```vb
 Dim a = [1, 2, 3]
 Dim s = 0
-For i From 0 To 2
+For i = 0 To 2
     s = s + a(1)
 Next
 Print s
