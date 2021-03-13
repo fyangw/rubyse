@@ -11,7 +11,7 @@ categories: ja
 主に比較となる言語はCOBOL、VB(.net)、Java、Python。
 
 
-機能         |Ruby          | COBOL     | VB                | Java8               | JavaScript             | Python3
+機能         |Ruby          | COBOL     | VB                | Java 8              | JavaScript             | Python 3
 -------------|-------------|------------|-------------------|--------------------|-------------------------|---------
 数式         |  `1+2*3`     |  `1+2*3`  | `1+2*3`           |   `1+2*3`           |  `1+2*3`               |  `1+2*3`   
 文字列       |  `"abc"`     |  `"abc"`  | `"abc"`           |   `"abc"`           |`"ab"`,`'ab'`          |`"ab"`,`'ab'`,`"""ab"""`,`'''ab'''`
@@ -58,7 +58,7 @@ Next
 Print s
 ```
 
-### Java
+### Java 8
 ```Java
 public class Demo {
     public static void main(String[] args) {
@@ -82,7 +82,7 @@ for (i = 0; i < a.length; i ++) {
 console.log(s);
 ```
 
-### Python3
+### Python 3
 ```python
 a = [1, 2, 3]
 s = 0
