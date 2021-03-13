@@ -39,9 +39,8 @@ Having trouble with Pages? Check out our [documentation](https://docs.github.com
 ### Posts
 {% for post in site.posts limit:3 %}
 
-{{post.title}}:{{site.baseurl}}{{post.url}}
+[{{post.title}} {{post.date | date:"%d-%m-%Y"}}]({{site.baseurl}}{{post.url}})
 {{post.description}}
-{{post.date | date:"%d-%m-%Y"}}
 
 {% endfor %}
 
