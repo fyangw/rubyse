@@ -9,6 +9,7 @@ categories: ja
 * オブジェクト指向プログラミング
 * ウェブプログラミングとMVC(Ruby on Rails)
 * データベースプログラミングとORM(ActiveRecord)
+* シングルページアプリケーションとアプリ(Restful)
 
 * オブジェクト指向デザイン(UML)
 * デザインパタン(GoF 24)
