@@ -27,22 +27,36 @@ categories: ja
 ### Ruby Demo
 ```ruby
 a = [1, 2, 3]
-sum = 0
+s = 0
 a.each do |e|
-  sum = sum + e
+  s = s + e
 end
-print sum
+print s
 ```
 
 ```ruby
 a = [1, 2, 3]
-sum = 0
+s = 0
 for i in 0..2
-  sum = sum + a[i]
+  s = s + a[i]
 end
-print sum
+print s
 ```
 
+### COBOL
+
+```cobol
+```
+
+### VB
+```vb
+Dim a = [1, 2, 3]
+Dim s = 0
+For i From 0 To 2
+    s = s + a(1)
+Next
+Print s
+```
 
 
 リファレンス
