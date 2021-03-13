@@ -21,6 +21,11 @@ https://www.sqlite.org/download.html
 ```
 gem install rails
 ```
+下記のメッセージが表示されたら、インストールが正常に完了した。
+```
+Done installing documentation for rack, concurrent-ruby, sprockets, zeitwerk, tzinfo, i18n, activesupport, nokogiri, crass, loofah, rails-html-sanitizer, rails-dom-testing, rack-test, erubi, builder, actionview, actionpack, sprockets-rails, thor, method_source, railties, mimemagic, marcel, activemodel, activerecord, globalid, activejob, activestorage, actiontext, mini_mime, mail, actionmailer, actionmailbox, websocket-extensions, websocket-driver, nio4r, actioncable, rails after 142 seconds
+38 gems installed
+```
 
 リファレンス
 https://guides.rubyonrails.org/getting_started.html
