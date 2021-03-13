@@ -10,6 +10,9 @@ categories: ja
 
 主に比較となる言語はCOBOL、VB(.net)、Java、Python。
 
----
-COBOL VB Java Python
----
+
+機能 | COBOL | VB | Java | Python
+--- | --- | --- | --- | ---
+数式 |    |     |     |     
+文字列 |    |    |     |    
+
