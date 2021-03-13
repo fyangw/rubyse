@@ -58,6 +58,39 @@ Next
 Print s
 ```
 
+### Java
+```Java
+public class Demo {
+    public static void main(String[] args) {
+        int[] a = {1, 2, 3};
+        int s = 0;
+        for (int i = 0; i < a.length; i ++) {
+            s += a[i];
+        }
+        System.out.println(s);
+    }
+}
+```
+
+### JavaScript
+```JavaScript
+a = {1, 2, 3};
+s = 0;
+for (i = 0; i < a.length; i ++) {
+    s += a[i];
+}
+console.log(s);
+```
+
+### Python3
+```python
+a = [1, 2, 3]
+s = 0
+for i in range(0, 2):
+  s = s + a[i]
+print (s)
+```
+
 
 リファレンス
 https://docs.microsoft.com/ja-jp/dotnet/visual-basic/programming-guide/language-features/
