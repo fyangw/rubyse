@@ -51,8 +51,8 @@ categories: ja
 デモのuser.json
 ```json
 {
-  id: 1,
-  name: "Frank"
+  "id": 1,
+  "name": "Frank"
 }
 ```
 
