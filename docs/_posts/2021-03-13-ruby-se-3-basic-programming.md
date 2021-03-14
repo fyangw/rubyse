@@ -74,7 +74,7 @@ public class Demo {
 
 ### JavaScript
 ```JavaScript
-a = {1, 2, 3};
+a = [1, 2, 3];
 s = 0;
 for (i = 0; i < a.length; i ++) {
     s += a[i];
