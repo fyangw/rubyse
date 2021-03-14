@@ -16,6 +16,12 @@ SQLite3のプリコンパイルバージョンをダンロードし、解凍す�
 https://www.sqlite.org/download.html
 今の最新バージョンはsqlite-dll-win64-x64-3350000.zipとsqlite-tools-win32-x86-3350000.zip
 
+### Node JS
+Nodeのインストーラーをダウンロードし、インストールする。
+
+### Yarn
+Yarnのパッケージをダウンロードし、解凍する。
+
 ### Ruby on Rails
 コマンドラインでRailsをインストールする。
 ```
