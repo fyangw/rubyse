@@ -7,6 +7,7 @@ categories: ja
 
 各言語を比較しながら、RubyウェブプログラミングとMVCフレームワークをリストアップする。
 * ウェブ、HTTPとHTML
+* Restful、JSON、シングルページとアプリ
 * MVCのデザインパタン
 * MVCフレームワーク
 
@@ -40,6 +41,20 @@ categories: ja
 * ファイルをローカルコンピュータに格納する。例えば c:\home\user\rubyse\day5webmvc\demo.html ブラウザでファイルを開くことができる。
 * ローカルコンピュータにWebサーバを立ち上げることができる。http://localhost:8080/demo.html
 * クラウドのホストサーバを購入すれば、世界中にウェブを公開することができる。
+
+### Restful、JSON、シングルページとアプリ
+* ダイナミックなウェブページは、ブラウザあるいはアプリ中に画面処理のモジュール（JavaScript/Native Android iOS）、そしてサーバ上動くデータ提供するモジュールに構成される。
+* ブラウザの画面処理とサーバのデータ提供処理の間に、最も適切な処理パタンはRestfulで、データフォーマットはJSONである。
+* HTTPプロトコルは各URLに対してPUT GET POST DELETEのメソッドが定義されている。この四つのメソッドはちょうどデータエンティティのCreate 新規作成、Read 取得、Update 更新、Delete 削除にマッピングできる。この仕組みはRestfulである。
+* 異なる言語の間、接続と操作のプロトコルのほか、通信フォーマットが必要である。よく使われているのはJSONとXMLだ。
+
+デモのuser.json
+```json
+{
+  id: 1,
+  name: "Frank"
+}
+```
 
 ### Ruby
 
