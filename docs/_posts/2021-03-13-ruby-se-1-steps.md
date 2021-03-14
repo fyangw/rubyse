@@ -11,9 +11,8 @@ categories: ja
 * 開発環境設定
 * プログラミングの基本
 * オブジェクト指向プログラミング
-* ウェブプログラミングとMVC(Ruby on Rails)
+* RestfulウェブプログラミングとMVC(Ruby on Rails)
 * データベースプログラミングとORM(ActiveRecord)
-* シングルページアプリケーションとアプリ(Restful)
 * 自動ユニットテスト
 
 ### 上流工程
