@@ -56,7 +56,29 @@ categories: ja
 }
 ```
 
-### Ruby
+### Ruby on Rails
+
+フォルダ 	| 目的
+---------	|-------
+app/	| アプリケーションのコントローラー、モデル、ビュー、ヘルパー、メーラー、チャネル、ジョブ、アサート
+bin/	| アプリケーションの起動、設定、更新、配布
+config/	| ルート、DBなどのコンフィグレーション
+config.ru	| Rackコンフィグレーション
+db/	| DBスキーマとマイグレーション
+Gemfile | GEMファイル
+Gemfile.lock	| Bundler gem制御ロック
+lib/	| 拡張モジュール
+log/	| ログ
+package.json	| npmとyarnのコンフィグレーション
+public/	| 静的なファイルとアサート
+Rakefile	| Rakeファイル
+README.md	| 説明ファイル
+storage/	| Active Storageファイル
+test/	| ユニットテスト
+tmp/	| キャッシュとPIDファイル
+vendor/	| サードパーティー
+.gitignore	| 
+.ruby-version	| バージョンファイル
 
 ```ruby
 
