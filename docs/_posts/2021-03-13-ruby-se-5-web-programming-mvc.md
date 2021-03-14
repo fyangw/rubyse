@@ -14,11 +14,11 @@ categories: ja
 
 主に比較となる言語はCOBOL、VB(.net)、Java 8、JavaScript、Python 3。
 
-機能         |Ruby (Rails)          | COBOL     | VB(.net MVVP)          | Java (Spring MVC)             | JavaScript (Vue)             | Python 3 (Django)
+機能         |Ruby (Rails)          | COBOL     | VB(.net MVVP)          | Java (Spring MVC)             | JavaScript (Vue)             | Python 3 (Flask)
 -------------|-------------|------------|------------------|---------------------|-------------------------|------------------------------------
-モデル       | ActiveRecord | - | -       | iBatis | - | 
+モデル       | ActiveRecord | - | -       | iBatis | - | SQLAlchemy
 ビュー     | ActiveView    |  ''       | -   | -       | - | -
-コントローラー | ActiveController |  ''       | -   | Controller       | - | -
+コントローラー | ActiveController |  ''       | -   | Controller       | - | Flask
 
 ### ウェブプログラミング、HTTPとHTMLとは
 * ウェブプログラミングはブラウザでサイトコンテンツの閲覧と情報送信が目的の開発である。
