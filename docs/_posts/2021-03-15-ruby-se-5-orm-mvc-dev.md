@@ -129,3 +129,13 @@ Processing by ArticlesController#index as HTML
   Rendered layout layouts/application.html.erb (Duration: 62.0ms | Allocations: 10282)
 Completed 200 OK in 82ms (Views: 69.5ms | ActiveRecord: 0.9ms | Allocations: 13927)
 ```
+
+### Railsサーバの処理フロー
+* ブラウザがHTTPプロトコルのリクエストを送信する。 GET http://localhost:3000
+* Railsアプリケーションがこのリクエストを受け取る。
+* RailsのルーターがルートアクセスをArticlesControllerのindexアクションにマッピングする。
+* indexアクションはArticleモデルを使って、DBから全てのarticlesを取得する。
+* Railsが自動的にビューのapp/views/articles/index.html.erbを表示する。
+* ビューのなかのERBソースコードが計算されてHTMLに出力される。
+* サーバがHTMLリスポンスをブラウザに戻す。
+
