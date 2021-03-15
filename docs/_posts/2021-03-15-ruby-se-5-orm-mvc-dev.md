@@ -7,6 +7,8 @@ categories: ja
 
 Ruby on RailsのORMはDB操作方法をオブジェクトで実装する。
 
+## 記事一覧ページの作成
+
 ### モデルの作成
 コマンドラインでモデル作成する。
 ```bash
@@ -139,3 +141,27 @@ Completed 200 OK in 82ms (Views: 69.5ms | ActiveRecord: 0.9ms | Allocations: 139
 * ビューのなかのERBソースコードが計算されてHTMLに出力される。
 * サーバがHTMLリスポンスをブラウザに戻す。
 
+## 記事詳細ページの作成
+ルーティング・コンフィグレーションの追加
+config/routes.rb
+```ruby
+Rails.application.routes.draw do
+  root "articles#index"
+
+  get "/articles", to: "articles#index"
+  get "/articles/:id", to: "articles#show" #追加
+end
+```の
+追加された一行の意味は、HTTPアクセスの"GET http://localhost:3000/articles/1" の場合、1は:idの値としてキャプチャーされる。そして、ArticlesControllerのshow actionのparams[:id]に引き渡される。
+
+```ruby
+class ArticlesController < ApplicationController
+  def index
+    @articles = Article.all
+  end
+
+  def show
+    @article = Article.find(params[:id])
+  end
+end
+```
