@@ -1,9 +1,9 @@
 ---
-title: "Ruby SE 5 ORM"
+title: "Ruby SE 5 ORMとMVCの開発"
 date: 2021-03-15 20:40:00 -0000
 categories: ja
 ---
-## Ruby SE 5 ORM
+## Ruby SE 5 ORMとMVCの開発
 
 Ruby on RailsのORMはDB操作方法をオブジェクトで実装する。
 
