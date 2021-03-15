@@ -81,11 +81,12 @@ vendor/	| サードパーティー
 .ruby-version	| バージョンファイル
 
 ### Rails Router
-ルートコンフィグレーションの追加
+ルーティング・コンフィグレーションの追加
 config/routers.rb
 ```ruby
 Rails.application.routes.draw do
-  get "/articles", to: "articles#index" #ルート・コンフィグレーションの追加
+  root "articles#index" #ルートページの指定
+  get "/articles", to: "articles#index" #ルーティング・コンフィグレーションの追加
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
 ```
