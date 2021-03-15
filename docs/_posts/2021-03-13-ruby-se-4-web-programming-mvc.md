@@ -1,9 +1,9 @@
 ---
-title: "Ruby SE 5 ウェブプログラミングとMVCフレームワーク"
+title: "Ruby SE 4 ウェブプログラミングとMVCフレームワーク"
 date: 2021-03-13 23:20:00 -0000
 categories: ja
 ---
-## Ruby SE 5 ウェブプログラミングとMVCフレームワーク
+## Ruby SE 4 ウェブプログラミングとMVCフレームワーク
 
 各言語を比較しながら、RubyウェブプログラミングとMVCフレームワークをリストアップする。
 * ウェブ、HTTPとHTML
