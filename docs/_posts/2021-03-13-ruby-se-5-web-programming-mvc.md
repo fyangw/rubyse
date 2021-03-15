@@ -80,6 +80,45 @@ vendor/	| サードパーティー
 .gitignore	| 
 .ruby-version	| バージョンファイル
 
+### Rails Router
+ルートコンフィグレーションの追加
+config/routers.rb
 ```ruby
+Rails.application.routes.draw do
+  get "/articles", to: "articles#index" #ルート・コンフィグレーションの追加
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+end
+```
 
+シェルでコントローラーの追加
+```bash
+$ bin/rails　generate controller Articles index --skip-routes
+```
+```bash
+dev\ruby\blog>rails generate controller Articles index --skip-routes
+      create  app/controllers/articles_controller.rb
+      invoke  erb
+      create    app/views/articles
+      create    app/views/articles/index.html.erb
+      invoke  test_unit
+      create    test/controllers/articles_controller_test.rb
+      invoke  helper
+      create    app/helpers/articles_helper.rb
+      invoke    test_unit
+      invoke  assets
+      invoke    scss
+      create      app/assets/stylesheets/articles.scss
+```
+
+app/controllers/articles_controller.rb
+```ruby
+class ArticlesController < ApplicationController
+  def index
+  end
+end
+```
+
+app/views/articles/index.html.erb
+```html
+<h1>Hello, Rails!</h1>
 ```
