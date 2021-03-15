@@ -165,3 +165,27 @@ class ArticlesController < ApplicationController
   end
 end
 ```
+
+showビューにHTML出力の追加
+app/views/articles/show.html.erb
+```html
+<h1><%= @article.title %></h1> #追加
+
+<p><%= @article.body %></p> #追加
+```
+
+```bash
+app/views/articles/index.html.erb to its page:
+
+<h1>Articles</h1>
+
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <a href="/articles/<%= article.id %>">
+        <%= article.title %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+```
