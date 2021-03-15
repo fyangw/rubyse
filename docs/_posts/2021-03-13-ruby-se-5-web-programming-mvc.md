@@ -57,6 +57,13 @@ categories: ja
 ```
 
 ### Ruby on Rails
+```bash
+rails new blog
+```
+
+```bash
+bundle exec rails webpacker:install
+```
 
 フォルダ 	| 目的
 ---------	|-------
