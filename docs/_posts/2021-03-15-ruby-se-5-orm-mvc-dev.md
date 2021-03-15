@@ -225,3 +225,16 @@ app/views/articles/index.html.erb:
   <% end %>
 </ul>
 ```
+
+app/views/articles/index.html.erb becomes:
+```
+<h1>Articles</h1>
+
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <%= link_to article.title, article %>
+    </li>
+  <% end %>
+</ul>
+```
