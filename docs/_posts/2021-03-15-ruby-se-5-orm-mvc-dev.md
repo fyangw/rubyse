@@ -431,4 +431,18 @@ app/views/articles/new.html.erb
       render :new
     end
   end
-  ```
+```
+
+```html
+<h1>Articles</h1>
+
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <%= link_to article.title, article %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New Article", new_article_path %>
+```
