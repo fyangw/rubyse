@@ -22,7 +22,7 @@ Ruby on RailsのORMはDB操作方法をオブジェクトで実装する。
   * [詳細ページコントローラーの修正](#詳細ページコントローラーの修正)
   * [詳細ページビューの追加](#詳細ページビューの追加)
   * [一覧ページの詳細ページへの遷移リンクの修正](#一覧ページの詳細ページへの遷移リンクの修正)
-* [その他のリソースアクションの追加](#その他のリソースアクションの追加)
+* [リソースアクションの追加](#リソースアクションの追加)
   * [railsコマンドでroutesの確認](#railsコマンドでroutesの確認)
   * [一覧ページリンクの_pathの利用](#一覧ページリンクの_pathの利用)
   * [一覧ページリンクのlink_toの利用](#一覧ページリンクのlink_toの利用)
@@ -222,7 +222,7 @@ app/views/articles/index.html.erbの修正
 <% # 追加終了 %>
 ```
 
-## その他のリソースアクションの追加
+## リソースアクションの追加
 config/route.rbの追加
 ```ruby
 Rails.application.routes.draw do
@@ -275,3 +275,160 @@ app/views/articles/index.html.erbの修正、リンクの追加
   <% end %>
 </ul>
 ```
+
+## 新規ページの作成
+
+### コントローラーにnewとcreateアクション追加の修正
+app/controllers/articles_controller.rb
+```ruby
+class ArticlesController < ApplicationController
+  def index
+    @articles = Article.all
+  end
+
+  def show
+    @article = Article.find(params[:id])
+  end
+
+  def new
+    @article = Article.new
+  end
+
+  def create
+    @article = Article.new(title: "...", body: "...")
+
+    if @article.save
+      redirect_to @article
+    else
+      render :new
+    end
+  end
+end
+```
+
+### フォーム・ビルダー
+app/views/articles/new.html.erb 
+```html
+<h1>New Article</h1>
+
+<%= form_with model: @article do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+```
+
+```html
+<form action="/articles" accept-charset="UTF-8" method="post">
+  <input type="hidden" name="authenticity_token" value="...">
+
+  <div>
+    <label for="article_title">Title</label><br>
+    <input type="text" name="article[title]" id="article_title">
+  </div>
+
+  <div>
+    <label for="article_body">Body</label><br>
+    <textarea name="article[body]" id="article_body"></textarea>
+  </div>
+
+  <div>
+    <input type="submit" name="commit" value="Create Article" data-disable-with="Create Article">
+  </div>
+</form>
+```
+
+### パラメータの利用
+app/controllers/articles_controller.rb
+```ruby
+class ArticlesController < ApplicationController
+  def index
+    @articles = Article.all
+  end
+
+  def show
+    @article = Article.find(params[:id])
+  end
+
+  def new
+    @article = Article.new
+  end
+
+  def create
+    @article = Article.new(article_params)
+
+    if @article.save
+      redirect_to @article
+    else
+      render :new
+    end
+  end
+
+  private
+    def article_params
+      params.require(:article).permit(:title, :body)
+    end
+end
+```
+
+### 項目のチェックとエラーメッセージ
+app/models/article.rb
+```ruby
+class Article < ApplicationRecord
+  validates :title, presence: true
+  validates :body, presence: true, length: { minimum: 10 }
+end
+```
+
+app/views/articles/new.html.erb
+```html
+<h1>New Article</h1>
+
+<%= form_with model: @article do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    <% @article.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %><br>
+    <% @article.errors.full_messages_for(:body).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+```
+
+```ruby
+  def new
+    @article = Article.new
+  end
+
+  def create
+    @article = Article.new(article_params)
+
+    if @article.save
+      redirect_to @article
+    else
+      render :new
+    end
+  end
+  ```
