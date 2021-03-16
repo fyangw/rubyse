@@ -174,9 +174,8 @@ app/views/articles/show.html.erb
 <p><%= @article.body %></p> #追加
 ```
 
+app/views/articles/index.html.erbの修正
 ```bash
-app/views/articles/index.html.erb to its page:
-
 <h1>Articles</h1>
 
 <ul>
