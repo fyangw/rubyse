@@ -7,12 +7,13 @@ categories: ja
 
 Ruby on RailsのORMはDB操作方法をオブジェクトで実装する。
 
-* [1 記事一覧ページの作成](#1-記事一覧ページの作成)
-* [2 記事詳細ページの作成](#2-記事詳細ページの作成)
+* [モデルの作成](#モデルの作成)
+* [記事一覧ページの作成](#記事一覧ページの作成)
+* [記事詳細ページの作成](#記事詳細ページの作成)
 
-## 1 記事一覧ページの作成
+## モデルの作成
 
-### モデルの作成
+### コマンドラインでモデルの作成
 コマンドラインでモデル作成する。
 ```bash
 rails generate model Article title:string body:text
@@ -27,6 +28,7 @@ rails generate model Article title:string body:text
       create      test/fixtures/articles.yml
 ```
 
+### データベース・マイグレーション
 作成されたデータベース変更ファイルは
 db/migrate/<timestamp>_create_articles.rb
 ```ruby
@@ -54,6 +56,7 @@ rails db:migrate
 ==  CreateArticles: migrated (0.0018s) ==========================
 ```
 
+### irbで機能の確認
 irbで機能を確認する。
 ```ruby
 rails console
@@ -74,6 +77,8 @@ irb> Article.find(1)
 irb> Article.all
 => #<ActiveRecord::Relation [#<Article id: 1, title: "Hello Rails", body: "I am on Rails!", created_at: "2020-01-18 23:47:30", updated_at: "2020-01-18 23:47:30">]>
 ```
+
+## 記事一覧ページの作成
 
 ### コントローラーの修正
 app/controllers/articles_controller.rbを修正する
