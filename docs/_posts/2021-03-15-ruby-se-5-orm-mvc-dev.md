@@ -149,7 +149,7 @@ Completed 200 OK in 82ms (Views: 69.5ms | ActiveRecord: 0.9ms | Allocations: 139
 * ビューのなかのERBソースコードが計算されてHTMLに出力される。
 * サーバがHTMLリスポンスをブラウザに戻す。
 
-## 2 記事詳細ページの作成
+## 記事詳細ページの作成
 ルーティング・コンフィグレーションの追加
 config/routes.rb
 ```ruby
