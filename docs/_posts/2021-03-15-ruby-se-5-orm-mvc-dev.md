@@ -8,12 +8,28 @@ categories: ja
 Ruby on RailsのORMはDB操作方法をオブジェクトで実装する。
 
 * [モデルの作成](#モデルの作成)
+ * [railsコマンドでモデルの作成](#railsコマンドでモデルの作成)
+ * [データベース・マイグレーション・スクリプト](#データベース・マイグレーション・スクリプト)
+ * [railsコマンドでデータベース・マイグレーションの実行](#railsコマンドでデータベース・マイグレーションの実行)
+ * [irbでモデル新規挿入、ID検索、一覧取得機能の確認](#irbでモデル新規挿入、ID検索、一覧取得機能の確認)
 * [一覧ページの作成](#一覧ページの作成)
+ * [一覧コントローラーの修正](#一覧コントローラーの修正)
+ * [一覧ビューの修正](#一覧ビューの修正)
+ * [railsコマンドでサーバの起動](#railsコマンドでサーバの起動)
+ * [Railsサーバの処理フロー](#Railsサーバの処理フロー)
 * [詳細ページの作成](#詳細ページの作成)
+ * [詳細ページルーティングの追加](#詳細ページルーティングの追加)
+ * [詳細ページコントローラーの修正](#詳細ページコントローラーの修正)
+ * [詳細ページビューの追加](#詳細ページビューの追加)
+ * [一覧ページの詳細ページへの遷移リンクの修正](#一覧ページの詳細ページへの遷移リンクの修正)
+* [その他のリソースアクションの追加](#その他のリソースアクションの追加)
+ * [railsコマンドでroutesの確認](#railsコマンドでroutesの確認)
+ * [一覧ページリンクの_pathの利用](#一覧ページリンクの_pathの利用)
+ * [一覧ページリンクのlink_toの利用](#一覧ページリンクのlink_toの利用)
 
 ## モデルの作成
 
-### コマンドラインでモデルの作成
+### railsコマンドでモデルの作成
 コマンドラインでモデル作成する。
 ```bash
 rails generate model Article title:string body:text
@@ -28,7 +44,7 @@ rails generate model Article title:string body:text
       create      test/fixtures/articles.yml
 ```
 
-### データベース・マイグレーション
+### データベース・マイグレーション・スクリプト
 作成されたデータベース変更ファイルは
 db/migrate/<timestamp>_create_articles.rb
 ```ruby
@@ -44,6 +60,7 @@ class CreateArticles < ActiveRecord::Migration[6.0]
 end
 ```
 
+### railsコマンドでデータベース・マイグレーションの実行
 データベース・マイグレーションを実行する。
 ```bash
 rails db:migrate
@@ -56,7 +73,7 @@ rails db:migrate
 ==  CreateArticles: migrated (0.0018s) ==========================
 ```
 
-### irbで機能の確認
+### irbでモデル新規挿入、ID検索、一覧取得機能の確認
 irbで機能を確認する。
 ```ruby
 rails console
@@ -80,7 +97,7 @@ irb> Article.all
 
 ## 一覧ページの作成
 
-### コントローラーの修正
+### 一覧コントローラーの修正
 app/controllers/articles_controller.rbを修正する
 ```ruby
 class ArticlesController < ApplicationController
@@ -90,7 +107,7 @@ class ArticlesController < ApplicationController
 end
 ```
 
-### ビューの修正
+### 一覧ビューの修正
 app/views/articles/index.html.erbを修正する。
 ```html
 <h1>Articles</h1>
@@ -106,7 +123,7 @@ app/views/articles/index.html.erbを修正する。
 <% #追加終了 %>
 ```
 
-### サーバの起動
+### railsコマンドでサーバの起動
 rails serverでサーバを起動してから、http://localhost:3000/ をブラウザでページを開くことができる。そして、下記のメッセージが表示される。
 ```bash
 rails server
@@ -150,6 +167,8 @@ Completed 200 OK in 82ms (Views: 69.5ms | ActiveRecord: 0.9ms | Allocations: 139
 * サーバがHTMLリスポンスをブラウザに戻す。
 
 ## 詳細ページの作成
+
+### 詳細ページルーティングの追加
 ルーティング・コンフィグレーションの追加
 config/routes.rb
 ```ruby
@@ -159,9 +178,11 @@ Rails.application.routes.draw do
   get "/articles", to: "articles#index"
   get "/articles/:id", to: "articles#show" #追加
 end
-```の
+```
 追加された一行の意味は、HTTPアクセスの"GET http://localhost:3000/articles/1" の場合、1は:idの値としてキャプチャーされる。そして、ArticlesControllerのshow actionのparams[:id]に引き渡される。
 
+
+### 詳細ページコントローラーの修正
 ```ruby
 class ArticlesController < ApplicationController
   def index
@@ -174,6 +195,7 @@ class ArticlesController < ApplicationController
 end
 ```
 
+### 詳細ページビューの追加
 showビューにHTML出力の追加
 app/views/articles/show.html.erbの追加
 ```html
@@ -182,6 +204,7 @@ app/views/articles/show.html.erbの追加
 <p><%= @article.body %></p> #追加
 ```
 
+### 一覧ページの詳細ページへの遷移リンクの修正
 app/views/articles/index.html.erbの修正
 ```html
 <h1>Articles</h1>
@@ -199,6 +222,7 @@ app/views/articles/index.html.erbの修正
 <% # 追加終了 %>
 ```
 
+## その他のリソースアクションの追加
 config/route.rbの追加
 ```ruby
 Rails.application.routes.draw do
@@ -208,7 +232,7 @@ Rails.application.routes.draw do
 end
 ```
 
-コマンドラインでrouteの確認
+### railsコマンドでroutesの確認
 ```ruby
 rails routes
       Prefix Verb   URI Pattern                  Controller#Action
@@ -222,6 +246,7 @@ edit_article GET    /articles/:id/edit(.:format) articles#edit
              DELETE /articles/:id(.:format)      articles#destroy
 ```
 
+### 一覧ページリンクの_pathの利用
 app/views/articles/index.html.erbの修正、リンク<a/>タグの追加
 ```html
 <h1>Articles</h1>
@@ -237,6 +262,7 @@ app/views/articles/index.html.erbの修正、リンク<a/>タグの追加
 </ul>
 ```
 
+### 一覧ページリンクのlink_toの利用
 app/views/articles/index.html.erbの修正、リンクの追加
 ```html
 <h1>Articles</h1>
