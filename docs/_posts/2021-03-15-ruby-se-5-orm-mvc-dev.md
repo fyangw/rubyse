@@ -8,8 +8,8 @@ categories: ja
 Ruby on RailsのORMはDB操作方法をオブジェクトで実装する。
 
 * [モデルの作成](#モデルの作成)
-* [記事一覧ページの作成](#記事一覧ページの作成)
-* [記事詳細ページの作成](#記事詳細ページの作成)
+* [一覧ページの作成](#一覧ページの作成)
+* [詳細ページの作成](#詳細ページの作成)
 
 ## モデルの作成
 
@@ -78,7 +78,7 @@ irb> Article.all
 => #<ActiveRecord::Relation [#<Article id: 1, title: "Hello Rails", body: "I am on Rails!", created_at: "2020-01-18 23:47:30", updated_at: "2020-01-18 23:47:30">]>
 ```
 
-## 記事一覧ページの作成
+## 一覧ページの作成
 
 ### コントローラーの修正
 app/controllers/articles_controller.rbを修正する
@@ -149,7 +149,7 @@ Completed 200 OK in 82ms (Views: 69.5ms | ActiveRecord: 0.9ms | Allocations: 139
 * ビューのなかのERBソースコードが計算されてHTMLに出力される。
 * サーバがHTMLリスポンスをブラウザに戻す。
 
-## 記事詳細ページの作成
+## 詳細ページの作成
 ルーティング・コンフィグレーションの追加
 config/routes.rb
 ```ruby
