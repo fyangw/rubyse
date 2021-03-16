@@ -175,7 +175,7 @@ app/views/articles/show.html.erbの追加
 ```
 
 app/views/articles/index.html.erbの修正
-```bash
+```html
 <h1>Articles</h1>
 
 <% # 追加開始 %>
@@ -215,7 +215,7 @@ edit_article GET    /articles/:id/edit(.:format) articles#edit
 ```
 
 app/views/articles/index.html.erbの修正、リンク<a/>タグの追加
-```
+```html
 <h1>Articles</h1>
 
 <ul>
@@ -230,7 +230,7 @@ app/views/articles/index.html.erbの修正、リンク<a/>タグの追加
 ```
 
 app/views/articles/index.html.erbの修正、リンクの追加
-```
+```html
 <h1>Articles</h1>
 
 <ul>
