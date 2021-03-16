@@ -279,7 +279,7 @@ app/views/articles/index.html.erbの修正、リンクの追加
 ## 新規ページの作成
 
 ### コントローラーにnewとcreateアクション追加の修正
-app/controllers/articles_controller.rb
+app/controllers/articles_controller.rbのshowメソッドの下にnewとcreateメソッドを追加する。
 ```ruby
 class ArticlesController < ApplicationController
   def index
@@ -289,7 +289,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
   end
-
+  # 追加開始
   def new
     @article = Article.new
   end
@@ -303,11 +303,12 @@ class ArticlesController < ApplicationController
       render :new
     end
   end
+  # 追加終了
 end
 ```
 
-### フォーム・ビルダー
-app/views/articles/new.html.erb 
+### newビューの追加及びフォーム・ビルダーの利用
+app/views/articles/new.html.erb新規追加、form関連はフォーム・ビルダーで作成する。
 ```html
 <h1>New Article</h1>
 
@@ -328,6 +329,7 @@ app/views/articles/new.html.erb
 <% end %>
 ```
 
+上記のerbは下記のhtmlに変換される。
 ```html
 <form action="/articles" accept-charset="UTF-8" method="post">
   <input type="hidden" name="authenticity_token" value="...">
@@ -349,7 +351,7 @@ app/views/articles/new.html.erb
 ```
 
 ### パラメータの利用
-app/controllers/articles_controller.rb
+app/controllers/articles_controller.rb 
 ```ruby
 class ArticlesController < ApplicationController
   def index
