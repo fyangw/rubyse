@@ -167,7 +167,7 @@ end
 ```
 
 showビューにHTML出力の追加
-app/views/articles/show.html.erb
+app/views/articles/show.html.erbの追加
 ```html
 <h1><%= @article.title %></h1> #追加
 
@@ -178,6 +178,7 @@ app/views/articles/index.html.erbの修正
 ```bash
 <h1>Articles</h1>
 
+<% # 追加開始 %>
 <ul>
   <% @articles.each do |article| %>
     <li>
@@ -187,16 +188,19 @@ app/views/articles/index.html.erbの修正
     </li>
   <% end %>
 </ul>
+<% # 追加終了 %>
 ```
 
+config/route.rbの追加
 ```ruby
 Rails.application.routes.draw do
   root "articles#index"
 
-  resources :articles
+  resources :articles #追加
 end
 ```
 
+コマンドラインでrouteの確認
 ```ruby
 rails routes
       Prefix Verb   URI Pattern                  Controller#Action
@@ -210,7 +214,7 @@ edit_article GET    /articles/:id/edit(.:format) articles#edit
              DELETE /articles/:id(.:format)      articles#destroy
 ```
 
-app/views/articles/index.html.erb:
+app/views/articles/index.html.erbの修正、リンク<a/>タグの追加
 ```
 <h1>Articles</h1>
 
@@ -225,7 +229,7 @@ app/views/articles/index.html.erb:
 </ul>
 ```
 
-app/views/articles/index.html.erb becomes:
+app/views/articles/index.html.erbの修正、リンクの追加
 ```
 <h1>Articles</h1>
 
