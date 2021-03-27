@@ -18,7 +18,7 @@ categories: ja
 変数         |  `i`         |  `i`      | `Dim i as Integer`|`int i = 0;`         |  `i=0;`               |  `i=0`
 配列初期化   |`a=[1,2,3]`    |  ``       | `Dim a`          |`int[] a={1,2,3};`   |  `a=[1,2,3];`          |  `a=[1,2,3]`
 配列利用     |`a[0]`         |  ``       | `a(0)`           |`a[0]`               |  `a[0]`                |  `a[0]`
-条件制御フロー | `if...elsif...end`       |  ``     | `If...Then...Else`|`if(...){...}else{}` |`if(...){...}else{...}`|  `if...: else: ...`  
+条件制御フロー | `if...elsif...end`,`case...when...end`       |  ``     | `If...Then...Else`|`if(...){...}else{}`,`switch(...){case...:...break;} |`if(...){...}else{...}`|  `if...: else: ...`  
 ロープ制御フロー| `for...in...[do]...end`,`(m..n).each do \|e\|...end`,`upto`,`downto`|  ``    | `For...Next`      |`for(...){...}`      | `for(...){...}`       |  `for ...`  
 関数制御フロー| `def ...`      |  ''     | `Function ...`      |``      | `function...(...){...}`       |  `def ...: ...`  
 
